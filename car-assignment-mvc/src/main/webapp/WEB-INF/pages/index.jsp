@@ -8,14 +8,16 @@
 <title>Insert title here</title>
 </head>
 <body>
-<h1>
+<h1 style="text-align:center;color:red">
 <c:out value="${heading}"/>
-
-<a href="/addcar">ADD CAR</a>
-<a href="cars/all">ALL CARS</a>
-<a href="cars/onsale">CARS ON SALE</a>
-<p><a href="cars/showByBrand">view specific cars</a></p>
 </h1>
+<h2 style="text-align:center">
+<p><a href="/addcar">ADD CAR</a></p>
+<p><a href="cars/all">ALL CARS</a></p>
+<p><a href="cars/onsale">CARS ON SALE</a></p>
+<p><a href="cars/showByBrand">VIEW SPECIFIC CARS</a></p>
+</h2>
+
 
 </body>
 </html>
