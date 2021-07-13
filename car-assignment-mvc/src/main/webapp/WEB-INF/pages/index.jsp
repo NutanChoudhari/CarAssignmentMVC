@@ -14,7 +14,7 @@
 <a href="/addcar">ADD CAR</a>
 <a href="cars/all">ALL CARS</a>
 <a href="cars/onsale">CARS ON SALE</a>
-
+<p><a href="cars/showByBrand">view specific cars</a></p>
 </h1>
 
 </body>

@@ -35,4 +35,26 @@ public class CarRepository {
 		List<Car> custlist=template.query(sql, BeanPropertyRowMapper.newInstance(Car.class));
 		return custlist;
 	}
+
+	public List<Car> getCarsByBrand(String model) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public String[] getModel()
+	{
+		String sql = "select distinct(model) from car";
+		List<String> list = template.queryForList(sql, String.class);
+		String[] brands = list.toArray(new String[list.size()]);
+	
+		return brands;
+	}
+		
+	public List<Car> getCarsByModel(String model)
+	{
+		String sql = "select * from car where model=?";
+		@SuppressWarnings("deprecation")
+		List<Car> cars =template.query(sql,new Object[]{model},new BeanPropertyRowMapper<>(Car.class));
+		return cars;
+	}
 }

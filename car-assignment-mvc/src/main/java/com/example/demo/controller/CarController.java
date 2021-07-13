@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.example.demo.model.Car;
 import com.example.demo.repository.CarRepository;
@@ -53,4 +54,26 @@ public class CarController {
 		model.addAttribute("list", list);
 		return "showcars";
 	}
+	
+	@ModelAttribute("brands")
+	public String[] brand(){
+		String[] brands = repo.getModel();
+		
+		
+		return brands;
+	}
+	@RequestMapping(value="/cars/showByBrand",method=RequestMethod.GET)
+	public String initFormModel(Model model1)
+	{
+	
+		model1.addAttribute("command",car);
+		return "selectBrand";
+	}
+	 @RequestMapping(value="/cars/model",method=RequestMethod.POST)	
+		public String findCarsByModel(@ModelAttribute("command") @RequestParam("model")String model, Model model1)
+		{
+			List<Car> list = repo.getCarsByModel(model);
+			model1.addAttribute("list",list);
+			return "showcars";
+		}
 }
